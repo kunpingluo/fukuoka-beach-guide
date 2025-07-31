@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comprehensive guide to Fukuoka's best beaches including Keya Beach, Futamigaura, and Nokonoshima Island. Perfect for swimming and scenic views.">
+  <meta name="keywords" content="Fukuoka beaches, Japan beaches, Itoshima, Keya Beach, travel guide">
+  <title>Fukuoka Beach Guide - 福岡ビーチガイド - 福冈沙滩指南</title>
+  
+  <!-- Preconnect to external domains for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Optimize font loading with display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome with SRI hash for security -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous">
+  
+  <style>
+    /* CSS Custom Properties for consistency and easy theming */
+    :root {
+      --primary: #2980b9;
+      --primary-light: #3498db;
+      --primary-hover: #1f618d;
+      --background: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #2c3e50;
+      --text-muted: #64748b;
+      --shadow-light: rgba(0, 0, 0, 0.05);
+      --shadow-medium: rgba(0, 0, 0, 0.1);
+      --border-radius: 12px;
+      --max-width: 900px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Noto Sans JP', 'Noto Sans SC', system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: var(--background);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Hero section with improved accessibility and performance */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 60px 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+    }
+
+    .hero .tagline {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Section titles with better visual hierarchy */
+    .section-title {
+      margin: 60px auto 30px;
+      font-size: clamp(1.5rem, 4vw, 1.8rem);
+      color: var(--primary);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 2px;
+    }
+
+    /* Beach cards with improved hover effects and accessibility */
+    .beach {
+      background: var(--card-bg);
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 4px solid var(--primary);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px var(--shadow-light);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beach::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(52, 152, 219, 0.02) 100%);
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .beach:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--shadow-medium);
+      border-left-color: var(--primary-hover);
+    }
+
+    .beach:hover::before {
+      opacity: 1;
+    }
+
+    .beach h3 {
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .beach h3 i {
+      color: var(--primary-light);
+      min-width: 20px;
+      font-size: 1.1rem;
+    }
+
+    .beach p {
+      margin: 10px 0;
+      line-height: 1.7;
+    }
+
+    /* Language-specific styling with better contrast */
+    .jp { 
+      font-weight: 600; 
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    
+    .cn { 
+      font-style: italic; 
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .en {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* Footer with better styling */
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 60px 0 30px;
+      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Responsive design improvements */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .hero {
+        padding: 40px 16px;
+        min-height: 250px;
+      }
+      
+      .beach {
+        padding: 20px;
+        margin: 16px 0;
+      }
+      
+      .beach h3 {
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Focus styles for better accessibility */
+    .beach:focus-within {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Print styles */
+    @media print {
+      .hero {
+        background: none !important;
+        color: var(--text-dark) !important;
+        box-shadow: none !important;
+      }
+      
+      .beach {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip link for screen readers -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Hero section -->
+  <header class="hero" role="banner">
+    <h1>Fukuoka Beach Guide<br><span lang="ja">福岡ビーチガイド</span><br><span lang="zh">福冈沙滩指南</span></h1>
+    <p class="tagline">Discover the best beaches in Fukuoka by region. Perfect spots for swimming, relaxation, and scenic views year-round!</p>
+  </header>
+
+  <main id="main-content" class="container" role="main">
+    <h2 class="section-title">
+      <span lang="en">Recommended Beaches</span> 
+      <span lang="ja">おすすめの海水浴場</span> 
+      <span lang="zh">推荐海滩</span>
+    </h2>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> <span lang="en">Keya Beach</span> / <span lang="ja">芥屋海水浴場</span> / <span lang="zh">芥屋海滩</span></h3>
+      <p class="jp" lang="ja">糸島の人気ビーチ。砂が柔らかく、景色も良く、若者が多く集まり、インスタ映えスポットも豊富。</p>
+      <p class="cn" lang="zh">Itoshima 最有人气的海滩，沙子细腻，水质清澈，拍照点丰富，适合年轻人。</p>
+      <p class="en">Most recommended: soft sand, clean water, scenic views, popular with young people, and plenty of Instagram-worthy spots.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-water" aria-hidden="true"></i> <span lang="en">Nogita Beach</span> / <span lang="ja">野北海水浴場</span> / <span lang="zh">野北海滩</span></h3>
+      <p class="jp" lang="ja">夕日が綺麗で静かなビーチ。砂浜が広く、落ち着いた雰囲気。</p>
+      <p class="cn" lang="zh">夕阳非常美，气氛安静，不拥挤，适合散步放松。</p>
+      <p class="en">Quiet beach with beautiful sunsets and wide sandy coast. Perfect for relaxing strolls and peaceful moments.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-camera-retro" aria-hidden="true"></i> <span lang="en">Futamigaura</span> / <span lang="ja">二見浦</span> / <span lang="zh">二见浦</span></h3>
+      <p class="jp" lang="ja">夫婦岩と鳥居が有名な絶景スポット。観光と写真に最適。</p>
+      <p class="cn" lang="zh">以夫妇岩和海上鸟居闻名，风景非常壮观，适合拍照打卡。</p>
+      <p class="en">Famous for its iconic twin rocks and torii gate. One of the most photogenic and spiritually significant beaches in Fukuoka.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-ship" aria-hidden="true"></i> <span lang="en">Nokonoshima Island</span> / <span lang="ja">能古島</span> / <span lang="zh">能古岛</span></h3>
+      <p class="jp" lang="ja">市内から近く、フェリーで簡単にアクセス可能。ファミリー向けに最適。</p>
+      <p class="cn" lang="zh">距离市区近，乘船即达，适合家庭一日游。</p>
+      <p class="en">Close to the city center, easily accessible by ferry. Ideal for family day trips with beautiful nature and beaches.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-fish" aria-hidden="true"></i> <span lang="en">Karadomari Beach</span> / <span lang="ja">唐泊海水浴場</span> / <span lang="zh">唐泊海滩</span></h3>
+      <p class="jp" lang="ja">人が少なく、ローカル感ある穴場ビーチ。</p>
+      <p class="cn" lang="zh">人少清净，保留渔港风情，适合想避开人群的人。</p>
+      <p class="en">Less crowded hidden gem with authentic local fishing village atmosphere. Perfect for those seeking tranquility.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-seedling" aria-hidden="true"></i> <span lang="en">Kishi Beach</span> / <span lang="ja">岐志</span> / <span lang="zh">岐志</span></h3>
+      <p class="jp" lang="ja">牡蠣小屋で有名なエリア。小さい静かなビーチも点在。</p>
+      <p class="cn" lang="zh">有名的牡蛎小屋区域，旁边有小而安静的沙滩。</p>
+      <p class="en">Quiet small beaches near the famous oyster huts. Combines peaceful beach time with delicious local seafood.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-train" aria-hidden="true"></i> <span lang="en">Shika Beach</span> / <span lang="ja">鹿家</span> / <span lang="zh">鹿家</span></h3>
+      <p class="jp" lang="ja">JR駅に近く、アクセス便利。こじんまりした落ち着いた浜。</p>
+      <p class="cn" lang="zh">靠近JR车站，交通方便，沙滩小而宁静。</p>
+      <p class="en">Small, calm beach conveniently located near JR station. Easy access by public transportation.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-car-side" aria-hidden="true"></i> <span lang="en">Shingu Beach</span> / <span lang="ja">新宮</span> / <span lang="zh">新宫</span></h3>
+      <p class="jp" lang="ja">駐車場もあり、施設整備がしっかりしている。</p>
+      <p class="cn" lang="zh">设施完备，有停车场，适合家庭出游。</p>
+      <p class="en">Well-equipped facilities with ample parking available. Very family-friendly with good amenities.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-star" aria-hidden="true"></i> <span lang="en">Fukuma Beach</span> / <span lang="ja">福間</span> / <span lang="zh">福间</span></h3>
+      <p class="jp" lang="ja">JR駅からも近く、海岸が広い人気スポット。</p>
+      <p class="cn" lang="zh">靠近JR，海滩宽阔，是当地很受欢迎的海水浴场。</p>
+      <p class="en">Wide, expansive beach with excellent JR access. One of the most popular and well-developed beach destinations.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-tree" aria-hidden="true"></i> <span lang="en">Miyajihama</span> / <span lang="ja">宮地浜</span> / <span lang="zh">宫地滨</span></h3>
+      <p class="jp" lang="ja">福間のすぐ近く。同様に人気で美しい海岸。</p>
+      <p class="cn" lang="zh">紧邻福间，同样受欢迎，风景优美。</p>
+      <p class="en">Adjacent to Fukuma with similar popularity and beautiful scenery. Great alternative with slightly fewer crowds.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-wind" aria-hidden="true"></i> <span lang="en">Tsuyazaki</span> / <span lang="ja">津屋崎</span> / <span lang="zh">津屋崎</span></h3>
+      <p class="jp" lang="ja">宮地浜の先に続く海岸。静かで落ち着いている。</p>
+      <p class="cn" lang="zh">紧接着宫地滨的宁静沙滩，气氛悠闲。</p>
+      <p class="en">Continuation of Miyajihama coastline with a quieter, more peaceful atmosphere. Perfect for contemplation.</p>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span lang="en">Shikanoshima</span> / <span lang="ja">志賀島</span> / <span lang="zh">志贺岛</span></h3>
+      <p class="jp" lang="ja">歴史的スポットもあり、海水浴・観光・グルメ全部楽しめる。</p>
+      <p class="cn" lang="zh">兼具历史、人文、海滩和美食，是福冈的综合型景点。</p>
+      <p class="en">Perfect combination of beach activities, historical sites, and local cuisine. A comprehensive destination for culture and relaxation.</p>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2025 Fukuoka Beach Guide by LUO KUNPING | <span lang="zh">三语版</span>: <span lang="en">English</span> / <span lang="ja">日本語</span> / <span lang="zh">中文</span></p>
+  </footer>
+</body>
+</html>
