@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Comprehensive guide to Fukuoka's best beaches including Keya Beach, Futamigaura, and Nokonoshima Island. Perfect for swimming and scenic views.">
-  <meta name="keywords" content="Fukuoka beaches, Japan beaches, Itoshima, Keya Beach, travel guide">
-  <title>Fukuoka Beach Guide - 福岡ビーチガイド - 福冈沙滩指南</title>
+  <meta name="description" content="Comprehensive guide to Fukuoka's best beaches in 5 languages: Chinese Simplified, Traditional Chinese, Japanese, Korean, and English.">
+  <meta name="keywords" content="Fukuoka beaches, Japan beaches, Itoshima, Keya Beach, travel guide, multilingual">
+  <title>Fukuoka Beach Guide - 福冈沙滩指南 - 福岡沙灘指南 - 후쿠오카 해변 가이드 - 福岡ビーチガイド</title>
   
   <!-- Preconnect to external domains for better performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   
-  <!-- Optimize font loading with display=swap -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Optimize font loading with display=swap for multiple languages -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Font Awesome with SRI hash for security -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous">
@@ -31,7 +31,7 @@
       --shadow-light: rgba(0, 0, 0, 0.05);
       --shadow-medium: rgba(0, 0, 0, 0.1);
       --border-radius: 12px;
-      --max-width: 900px;
+      --max-width: 1000px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -41,7 +41,7 @@
     }
 
     body {
-      font-family: 'Noto Sans', 'Noto Sans JP', 'Noto Sans SC', system-ui, sans-serif;
+      font-family: 'Noto Sans', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', system-ui, sans-serif;
       line-height: 1.6;
       margin: 0;
       background: var(--background);
@@ -54,6 +54,34 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 20px;
+    }
+
+    /* Language selector */
+    .language-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px var(--shadow-medium);
+      padding: 8px;
+    }
+
+    .language-selector select {
+      border: none;
+      background: transparent;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .language-selector select:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
     }
 
     /* Skip link for accessibility */
@@ -77,7 +105,7 @@
     .hero {
       position: relative;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 300px;
+      min-height: 350px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -103,7 +131,7 @@
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       font-weight: 700;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       line-height: 1.2;
@@ -113,7 +141,7 @@
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       margin-top: 1rem;
       color: rgba(255, 255, 255, 0.9);
-      max-width: 600px;
+      max-width: 700px;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
@@ -177,13 +205,14 @@
     }
 
     .beach h3 {
-      margin: 0 0 12px 0;
+      margin: 0 0 16px 0;
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 1.25rem;
       color: var(--primary);
       font-weight: 700;
+      flex-wrap: wrap;
     }
 
     .beach h3 i {
@@ -192,27 +221,62 @@
       font-size: 1.1rem;
     }
 
+    .beach-name {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
     .beach p {
       margin: 10px 0;
       line-height: 1.7;
     }
 
     /* Language-specific styling with better contrast */
-    .jp { 
-      font-weight: 600; 
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-    
-    .cn { 
-      font-style: italic; 
-      color: var(--text-muted);
-      margin-bottom: 8px;
+    .lang-group {
+      margin-bottom: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
     }
 
-    .en {
+    .lang-group:last-child {
+      border-bottom: none;
+    }
+
+    .lang-zh-cn { 
       color: var(--text-dark);
       font-weight: 500;
+    }
+    
+    .lang-zh-tw { 
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .lang-ja { 
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .lang-ko { 
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .lang-en {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Language display control */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
     }
 
     /* Footer with better styling */
@@ -233,7 +297,7 @@
       
       .hero {
         padding: 40px 16px;
-        min-height: 250px;
+        min-height: 300px;
       }
       
       .beach {
@@ -243,7 +307,12 @@
       
       .beach h3 {
         font-size: 1.1rem;
-        flex-wrap: wrap;
+      }
+
+      .language-selector {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
       }
     }
 
@@ -255,6 +324,7 @@
 
     /* Print styles */
     @media print {
+      .language-selector { display: none !important; }
       .hero {
         background: none !important;
         color: var(--text-dark) !important;
@@ -282,106 +352,477 @@
   <!-- Skip link for screen readers -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Language selector -->
+  <div class="language-selector">
+    <select id="languageSelect" onchange="changeLanguage(this.value)">
+      <option value="zh-cn">简体中文</option>
+      <option value="zh-tw">繁體中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
   <!-- Hero section -->
   <header class="hero" role="banner">
-    <h1>Fukuoka Beach Guide<br><span lang="ja">福岡ビーチガイド</span><br><span lang="zh">福冈沙滩指南</span></h1>
-    <p class="tagline">Discover the best beaches in Fukuoka by region. Perfect spots for swimming, relaxation, and scenic views year-round!</p>
+    <h1>
+      <div class="lang-content lang-zh-cn active">福冈沙滩指南</div>
+      <div class="lang-content lang-zh-tw">福岡沙灘指南</div>
+      <div class="lang-content lang-ja">福岡ビーチガイド</div>
+      <div class="lang-content lang-ko">후쿠오카 해변 가이드</div>
+      <div class="lang-content lang-en">Fukuoka Beach Guide</div>
+    </h1>
+    <p class="tagline">
+      <span class="lang-content lang-zh-cn active">按地区介绍福冈主要海滩。夏季游泳和观景的完美去处！</span>
+      <span class="lang-content lang-zh-tw">按地區介紹福岡主要海灘。夏季游泳和觀景的完美去處！</span>
+      <span class="lang-content lang-ja">福岡の主要ビーチを地域別にご紹介。夏の海水浴と絶景スポットに最適！</span>
+      <span class="lang-content lang-ko">후쿠오카 주요 해변을 지역별로 소개합니다. 여름 해수욕과 경치 감상에 완벽한 장소!</span>
+      <span class="lang-content lang-en">Discover the best beaches in Fukuoka by region. Perfect spots for swimming, relaxation, and scenic views year-round!</span>
+    </p>
   </header>
 
   <main id="main-content" class="container" role="main">
     <h2 class="section-title">
-      <span lang="en">Recommended Beaches</span> 
-      <span lang="ja">おすすめの海水浴場</span> 
-      <span lang="zh">推荐海滩</span>
+      <span class="lang-content lang-zh-cn active">推荐海滩</span>
+      <span class="lang-content lang-zh-tw">推薦海灘</span>
+      <span class="lang-content lang-ja">おすすめの海水浴場</span>
+      <span class="lang-content lang-ko">추천 해변</span>
+      <span class="lang-content lang-en">Recommended Beaches</span>
     </h2>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> <span lang="en">Keya Beach</span> / <span lang="ja">芥屋海水浴場</span> / <span lang="zh">芥屋海滩</span></h3>
-      <p class="jp" lang="ja">糸島の人気ビーチ。砂が柔らかく、景色も良く、若者が多く集まり、インスタ映えスポットも豊富。</p>
-      <p class="cn" lang="zh">Itoshima 最有人气的海滩，沙子细腻，水质清澈，拍照点丰富，适合年轻人。</p>
-      <p class="en">Most recommended: soft sand, clean water, scenic views, popular with young people, and plenty of Instagram-worthy spots.</p>
+      <h3>
+        <i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">芥屋海滩</span>
+          <span class="lang-content lang-zh-tw">芥屋海灘</span>
+          <span class="lang-content lang-ja">芥屋海水浴場</span>
+          <span class="lang-content lang-ko">케야 해변</span>
+          <span class="lang-content lang-en">Keya Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>糸岛最受欢迎的海滩，沙子细腻，水质清澈，拍照点丰富，深受年轻人喜爱。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>糸島最受歡迎的海灘，沙子細膩，水質清澈，拍照點豐富，深受年輕人喜愛。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>糸島の人気ビーチ。砂が柔らかく、景色も良く、若者が多く集まり、インスタ映えスポットも豊富。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>이토시마에서 가장 인기 있는 해변으로, 부드러운 모래와 깨끗한 바닷물, 다양한 포토존으로 젊은이들에게 인기가 많습니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Most recommended: soft sand, clean water, scenic views, popular with young people, and plenty of Instagram-worthy spots.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-water" aria-hidden="true"></i> <span lang="en">Nogita Beach</span> / <span lang="ja">野北海水浴場</span> / <span lang="zh">野北海滩</span></h3>
-      <p class="jp" lang="ja">夕日が綺麗で静かなビーチ。砂浜が広く、落ち着いた雰囲気。</p>
-      <p class="cn" lang="zh">夕阳非常美，气氛安静，不拥挤，适合散步放松。</p>
-      <p class="en">Quiet beach with beautiful sunsets and wide sandy coast. Perfect for relaxing strolls and peaceful moments.</p>
+      <h3>
+        <i class="fa-solid fa-water" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">野北海滩</span>
+          <span class="lang-content lang-zh-tw">野北海灘</span>
+          <span class="lang-content lang-ja">野北海水浴場</span>
+          <span class="lang-content lang-ko">노키타 해변</span>
+          <span class="lang-content lang-en">Nogita Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>夕阳非常美丽，氛围安静，海滩宽广，适合悠闲散步和放松。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>夕陽非常美麗，氛圍安靜，海灘寬廣，適合悠閒散步和放鬆。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>夕日が綺麗で静かなビーチ。砂浜が広く、落ち着いた雰囲気。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>아름다운 일몰과 조용한 분위기가 특징인 넓은 모래 해변으로, 한적한 산책과 휴식에 완벽합니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Quiet beach with beautiful sunsets and wide sandy coast. Perfect for relaxing strolls and peaceful moments.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-camera-retro" aria-hidden="true"></i> <span lang="en">Futamigaura</span> / <span lang="ja">二見浦</span> / <span lang="zh">二见浦</span></h3>
-      <p class="jp" lang="ja">夫婦岩と鳥居が有名な絶景スポット。観光と写真に最適。</p>
-      <p class="cn" lang="zh">以夫妇岩和海上鸟居闻名，风景非常壮观，适合拍照打卡。</p>
-      <p class="en">Famous for its iconic twin rocks and torii gate. One of the most photogenic and spiritually significant beaches in Fukuoka.</p>
+      <h3>
+        <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">二见浦</span>
+          <span class="lang-content lang-zh-tw">二見浦</span>
+          <span class="lang-content lang-ja">二見浦</span>
+          <span class="lang-content lang-ko">후타미가우라</span>
+          <span class="lang-content lang-en">Futamigaura</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>以夫妇岩和海上鸟居闻名，风景壮观，是福冈最具代表性的拍照打卡地。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>以夫婦岩和海上鳥居聞名，風景壯觀，是福岡最具代表性的拍照打卡地。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>夫婦岩と鳥居が有名な絶景スポット。観光と写真に最適。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>부부바위와 바다 위의 도리이로 유명한 절경 명소로, 관광과 사진 촬영에 최적의 장소입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Famous for its iconic twin rocks and torii gate. One of the most photogenic and spiritually significant beaches in Fukuoka.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-ship" aria-hidden="true"></i> <span lang="en">Nokonoshima Island</span> / <span lang="ja">能古島</span> / <span lang="zh">能古岛</span></h3>
-      <p class="jp" lang="ja">市内から近く、フェリーで簡単にアクセス可能。ファミリー向けに最適。</p>
-      <p class="cn" lang="zh">距离市区近，乘船即达，适合家庭一日游。</p>
-      <p class="en">Close to the city center, easily accessible by ferry. Ideal for family day trips with beautiful nature and beaches.</p>
+      <h3>
+        <i class="fa-solid fa-ship" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">能古岛</span>
+          <span class="lang-content lang-zh-tw">能古島</span>
+          <span class="lang-content lang-ja">能古島</span>
+          <span class="lang-content lang-ko">노코노시마</span>
+          <span class="lang-content lang-en">Nokonoshima Island</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>距离市区近，乘船即达，拥有美丽的自然风光和海滩，适合家庭一日游。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>距離市區近，乘船即達，擁有美麗的自然風光和海灘，適合家庭一日遊。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>市内から近く、フェリーで簡単にアクセス可能。ファミリー向けに最適。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>시내에서 가까워 페리로 쉽게 접근할 수 있으며, 아름다운 자연과 해변이 있어 가족 당일치기 여행에 최적입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Close to the city center, easily accessible by ferry. Ideal for family day trips with beautiful nature and beaches.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-fish" aria-hidden="true"></i> <span lang="en">Karadomari Beach</span> / <span lang="ja">唐泊海水浴場</span> / <span lang="zh">唐泊海滩</span></h3>
-      <p class="jp" lang="ja">人が少なく、ローカル感ある穴場ビーチ。</p>
-      <p class="cn" lang="zh">人少清净，保留渔港风情，适合想避开人群的人。</p>
-      <p class="en">Less crowded hidden gem with authentic local fishing village atmosphere. Perfect for those seeking tranquility.</p>
+      <h3>
+        <i class="fa-solid fa-fish" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">唐泊海滩</span>
+          <span class="lang-content lang-zh-tw">唐泊海灘</span>
+          <span class="lang-content lang-ja">唐泊海水浴場</span>
+          <span class="lang-content lang-ko">가라도마리 해변</span>
+          <span class="lang-content lang-en">Karadomari Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>人少清净，保留渔港风情，是想要避开人群的隐秘宝地。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>人少清淨，保留漁港風情，是想要避開人群的隱秘寶地。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>人が少なく、ローカル感ある穴場ビーチ。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>사람이 적고 어촌 분위기가 남아있는 숨겨진 보석 같은 해변으로, 평온함을 찾는 이들에게 완벽합니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Less crowded hidden gem with authentic local fishing village atmosphere. Perfect for those seeking tranquility.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-seedling" aria-hidden="true"></i> <span lang="en">Kishi Beach</span> / <span lang="ja">岐志</span> / <span lang="zh">岐志</span></h3>
-      <p class="jp" lang="ja">牡蠣小屋で有名なエリア。小さい静かなビーチも点在。</p>
-      <p class="cn" lang="zh">有名的牡蛎小屋区域，旁边有小而安静的沙滩。</p>
-      <p class="en">Quiet small beaches near the famous oyster huts. Combines peaceful beach time with delicious local seafood.</p>
+      <h3>
+        <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">岐志海滩</span>
+          <span class="lang-content lang-zh-tw">岐志海灘</span>
+          <span class="lang-content lang-ja">岐志</span>
+          <span class="lang-content lang-ko">기시 해변</span>
+          <span class="lang-content lang-en">Kishi Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>有名的牡蛎小屋区域，旁边有小而安静的沙滩，可以享受海滩和美食的双重体验。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>有名的牡蠣小屋區域，旁邊有小而安靜的沙灘，可以享受海灘和美食的雙重體驗。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>牡蠣小屋で有名なエリア。小さい静かなビーチも点在。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>유명한 굴 오두막 지역 근처의 조용하고 작은 해변으로, 평화로운 해변 시간과 맛있는 현지 해산물을 함께 즐길 수 있습니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Quiet small beaches near the famous oyster huts. Combines peaceful beach time with delicious local seafood.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-train" aria-hidden="true"></i> <span lang="en">Shika Beach</span> / <span lang="ja">鹿家</span> / <span lang="zh">鹿家</span></h3>
-      <p class="jp" lang="ja">JR駅に近く、アクセス便利。こじんまりした落ち着いた浜。</p>
-      <p class="cn" lang="zh">靠近JR车站，交通方便，沙滩小而宁静。</p>
-      <p class="en">Small, calm beach conveniently located near JR station. Easy access by public transportation.</p>
+      <h3>
+        <i class="fa-solid fa-train" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">鹿家海滩</span>
+          <span class="lang-content lang-zh-tw">鹿家海灘</span>
+          <span class="lang-content lang-ja">鹿家</span>
+          <span class="lang-content lang-ko">시카 해변</span>
+          <span class="lang-content lang-en">Shika Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>靠近JR车站，交通方便，沙滩小而宁静，适合公共交通出行。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>靠近JR車站，交通方便，沙灘小而寧靜，適合公共交通出行。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>JR駅に近く、アクセス便利。こじんまりした落ち着いた浜。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>JR역 근처에 위치해 교통이 편리한 작고 조용한 해변입니다. 대중교통으로 쉽게 접근할 수 있습니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Small, calm beach conveniently located near JR station. Easy access by public transportation.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-car-side" aria-hidden="true"></i> <span lang="en">Shingu Beach</span> / <span lang="ja">新宮</span> / <span lang="zh">新宫</span></h3>
-      <p class="jp" lang="ja">駐車場もあり、施設整備がしっかりしている。</p>
-      <p class="cn" lang="zh">设施完备，有停车场，适合家庭出游。</p>
-      <p class="en">Well-equipped facilities with ample parking available. Very family-friendly with good amenities.</p>
+      <h3>
+        <i class="fa-solid fa-car-side" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">新宫海滩</span>
+          <span class="lang-content lang-zh-tw">新宮海灘</span>
+          <span class="lang-content lang-ja">新宮</span>
+          <span class="lang-content lang-ko">신구 해변</span>
+          <span class="lang-content lang-en">Shingu Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>设施完备，有停车场，非常适合家庭出游，配套设施齐全。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>設施完備，有停車場，非常適合家庭出遊，配套設施齊全。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>駐車場もあり、施設整備がしっかりしている。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>주차장을 포함한 시설이 잘 갖춰져 있어 가족 친화적이며 편의시설이 우수합니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Well-equipped facilities with ample parking available. Very family-friendly with good amenities.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-star" aria-hidden="true"></i> <span lang="en">Fukuma Beach</span> / <span lang="ja">福間</span> / <span lang="zh">福间</span></h3>
-      <p class="jp" lang="ja">JR駅からも近く、海岸が広い人気スポット。</p>
-      <p class="cn" lang="zh">靠近JR，海滩宽阔，是当地很受欢迎的海水浴场。</p>
-      <p class="en">Wide, expansive beach with excellent JR access. One of the most popular and well-developed beach destinations.</p>
+      <h3>
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">福间海滩</span>
+          <span class="lang-content lang-zh-tw">福間海灘</span>
+          <span class="lang-content lang-ja">福間</span>
+          <span class="lang-content lang-ko">후쿠마 해변</span>
+          <span class="lang-content lang-en">Fukuma Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>海滩宽阔，JR交通便利，是当地最受欢迎和开发完善的海滩目的地之一。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>海灘寬闊，JR交通便利，是當地最受歡迎和開發完善的海灘目的地之一。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>JR駅からも近く、海岸が広い人気スポット。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>넓고 광활한 해변으로 JR 접근성이 뛰어나며, 가장 인기 있고 잘 개발된 해변 목적지 중 하나입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Wide, expansive beach with excellent JR access. One of the most popular and well-developed beach destinations.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-tree" aria-hidden="true"></i> <span lang="en">Miyajihama</span> / <span lang="ja">宮地浜</span> / <span lang="zh">宫地滨</span></h3>
-      <p class="jp" lang="ja">福間のすぐ近く。同様に人気で美しい海岸。</p>
-      <p class="cn" lang="zh">紧邻福间，同样受欢迎，风景优美。</p>
-      <p class="en">Adjacent to Fukuma with similar popularity and beautiful scenery. Great alternative with slightly fewer crowds.</p>
+      <h3>
+        <i class="fa-solid fa-tree" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">宫地滨</span>
+          <span class="lang-content lang-zh-tw">宮地濱</span>
+          <span class="lang-content lang-ja">宮地浜</span>
+          <span class="lang-content lang-ko">미야지하마</span>
+          <span class="lang-content lang-en">Miyajihama</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>紧邻福间，同样受欢迎，风景优美，人流相对较少的好选择。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>緊鄰福間，同樣受歡迎，風景優美，人流相對較少的好選擇。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>福間のすぐ近く。同様に人気で美しい海岸。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>후쿠마에 인접해 있으며 비슷한 인기와 아름다운 경치를 자랑하지만 상대적으로 적은 인파를 가진 좋은 대안입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Adjacent to Fukuma with similar popularity and beautiful scenery. Great alternative with slightly fewer crowds.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-wind" aria-hidden="true"></i> <span lang="en">Tsuyazaki</span> / <span lang="ja">津屋崎</span> / <span lang="zh">津屋崎</span></h3>
-      <p class="jp" lang="ja">宮地浜の先に続く海岸。静かで落ち着いている。</p>
-      <p class="cn" lang="zh">紧接着宫地滨的宁静沙滩，气氛悠闲。</p>
-      <p class="en">Continuation of Miyajihama coastline with a quieter, more peaceful atmosphere. Perfect for contemplation.</p>
+      <h3>
+        <i class="fa-solid fa-wind" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">津屋崎</span>
+          <span class="lang-content lang-zh-tw">津屋崎</span>
+          <span class="lang-content lang-ja">津屋崎</span>
+          <span class="lang-content lang-ko">쓰야자키</span>
+          <span class="lang-content lang-en">Tsuyazaki</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>紧接着宫地滨的宁静海滩，氛围悠闲，适合冥想和沉思。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>緊接著宮地濱的寧靜海灘，氛圍悠閒，適合冥想和沉思。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>宮地浜の先に続く海岸。静かで落ち着いている。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>미야지하마 해안선의 연장선상에 있는 더 조용하고 평화로운 분위기의 해변으로, 명상에 완벽한 곳입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Continuation of Miyajihama coastline with a quieter, more peaceful atmosphere. Perfect for contemplation.</p>
+      </div>
     </section>
 
     <section class="beach" tabindex="0">
-      <h3><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span lang="en">Shikanoshima</span> / <span lang="ja">志賀島</span> / <span lang="zh">志贺岛</span></h3>
-      <p class="jp" lang="ja">歴史的スポットもあり、海水浴・観光・グルメ全部楽しめる。</p>
-      <p class="cn" lang="zh">兼具历史、人文、海滩和美食，是福冈的综合型景点。</p>
-      <p class="en">Perfect combination of beach activities, historical sites, and local cuisine. A comprehensive destination for culture and relaxation.</p>
+      <h3>
+        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">志贺岛</span>
+          <span class="lang-content lang-zh-tw">志賀島</span>
+          <span class="lang-content lang-ja">志賀島</span>
+          <span class="lang-content lang-ko">시카노시마</span>
+          <span class="lang-content lang-en">Shikanoshima</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>兼具历史、文化、海滩和美食，是福冈的综合型景点，文化与休闲完美结合。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>兼具歷史、文化、海灘和美食，是福岡的綜合型景點，文化與休閒完美結合。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>歴史的スポットもあり、海水浴・観光・グルメ全部楽しめる。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>해변 활동, 역사 유적지, 현지 요리가 완벽하게 조합된 문화와 휴식을 위한 종합적인 목적지입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Perfect combination of beach activities, historical sites, and local cuisine. A comprehensive destination for culture and relaxation.</p>
+      </div>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3>
+        <i class="fa-solid fa-city" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">百道滨</span>
+          <span class="lang-content lang-zh-tw">百道濱</span>
+          <span class="lang-content lang-ja">百道浜</span>
+          <span class="lang-content lang-ko">모모치하마</span>
+          <span class="lang-content lang-en">Momochi Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>距离市中心最近的人工海滩，可以看到福冈塔和PayPay巨蛋，都市型海滨公园。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>距離市中心最近的人工海灘，可以看到福岡塔和PayPay巨蛋，都市型海濱公園。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>市内中心部に最も近い人工ビーチ。福岡タワーやPayPayドームが見える都市型海浜公園。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>시내 중심가에서 가장 가까운 인공 해변으로, 후쿠오카 타워와 PayPay 돔이 보이는 도시형 해변 공원입니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Closest artificial beach to downtown Fukuoka. Urban seaside park with views of Fukuoka Tower and PayPay Dome.</p>
+      </div>
+    </section>
+
+    <section class="beach" tabindex="0">
+      <h3>
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        <span class="beach-name">
+          <span class="lang-content lang-zh-cn active">奈多海滩</span>
+          <span class="lang-content lang-zh-tw">奈多海灘</span>
+          <span class="lang-content lang-ja">奈多海水浴場</span>
+          <span class="lang-content lang-ko">나타 해변</span>
+          <span class="lang-content lang-en">Nata Beach</span>
+        </span>
+      </h3>
+      <div class="lang-content lang-zh-cn active">
+        <p>位于海之中道的美丽白沙海岸，海水透明度高，以会发声的沙子而闻名。有24小时营业的海之家和沙滩排球网。</p>
+      </div>
+      <div class="lang-content lang-zh-tw">
+        <p>位於海之中道的美麗白沙海岸，海水透明度高，以會發聲的沙子而聞名。有24小時營業的海之家和沙灘排球網。</p>
+      </div>
+      <div class="lang-content lang-ja">
+        <p>海の中道にある白砂青松の美しい海岸。透明度が高く、鳴き砂でも有名。24時間営業の海の家やビーチバレーネットもある人気スポット。</p>
+      </div>
+      <div class="lang-content lang-ko">
+        <p>우미노나카미치에 있는 아름다운 백사장으로, 높은 투명도를 자랑하며 "노래하는 모래"로 유명합니다. 24시간 운영하는 해변 하우스와 배구 네트가 있습니다.</p>
+      </div>
+      <div class="lang-content lang-en">
+        <p>Beautiful white sand beach on Umi-no-Nakamichi with high water transparency. Famous for "singing sand" with 24-hour beach houses and volleyball nets.</p>
+      </div>
     </section>
   </main>
 
   <footer class="footer" role="contentinfo">
-    <p>&copy; 2025 Fukuoka Beach Guide by LUO KUNPING | <span lang="zh">三语版</span>: <span lang="en">English</span> / <span lang="ja">日本語</span> / <span lang="zh">中文</span></p>
+    <p>
+      <span class="lang-content lang-zh-cn active">&copy; 2025 福冈海滩指南 by LUO KUNPING | 五语版：简体中文 / 繁體中文 / 日本語 / 한국어 / English</span>
+      <span class="lang-content lang-zh-tw">&copy; 2025 福岡海灘指南 by LUO KUNPING | 五語版：简体中文 / 繁體中文 / 日本語 / 한국어 / English</span>
+      <span class="lang-content lang-ja">&copy; 2025 福岡ビーチガイド by LUO KUNPING | 五か国語版：简体中文 / 繁體中文 / 日本語 / 한국어 / English</span>
+      <span class="lang-content lang-ko">&copy; 2025 후쿠오카 해변 가이드 by LUO KUNPING | 5개 언어 버전：简体中文 / 繁體中文 / 日本語 / 한국어 / English</span>
+      <span class="lang-content lang-en">&copy; 2025 Fukuoka Beach Guide by LUO KUNPING | 5-Language Edition: 简体中文 / 繁體中文 / 日本語 / 한국어 / English</span>
+    </p>
   </footer>
+
+  <script>
+    function changeLanguage(lang) {
+      // Hide all language content
+      const allLangContent = document.querySelectorAll('.lang-content');
+      allLangContent.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show selected language content
+      const selectedLangContent = document.querySelectorAll('.lang-content.lang-' + lang);
+      selectedLangContent.forEach(content => {
+        content.classList.add('active');
+      });
+      
+      // Update document language
+      document.documentElement.lang = lang === 'zh-cn' ? 'zh-CN' : 
+                                      lang === 'zh-tw' ? 'zh-TW' : 
+                                      lang === 'ja' ? 'ja' : 
+                                      lang === 'ko' ? 'ko' : 'en';
+      
+      // Store language preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // Load saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'zh-cn';
+      document.getElementById('languageSelect').value = savedLang;
+      changeLanguage(savedLang);
+    });
+  </script>
 </body>
 </html>
